@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VHriHgOUzmJESwcRK+vfc+JVxj1gDUKFRJou1m050oauKG98XTDWpLRcrMqvJo8KF9LDAkQ/6p+htP9BX8ekOw==",
+  "dgSpecHash": "jnEtoXqYPxQXd7Fm7iJBxt7wL2M4dAQGoexE3m/IUqci/esYX8SiurJJ6soj6xnl7UEIEkJsNkidSaKncBkMnw==",
   "success": true,
   "projectFilePath": "C:\\Users\\alex.ostlund\\null\\Zombie_Annihilation\\Zombie_Annihilation\\Zombie_Annihilation.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\alex.ostlund\\.nuget\\packages\\raylib-cs\\4.2.0.1\\raylib-cs.4.2.0.1.nupkg.sha512",
+    "C:\\Users\\alex.ostlund\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
