@@ -6,7 +6,7 @@ Raylib.SetTargetFPS(60);
 
 //classes
 Zombie z = new Zombie();
-cat c = new cat();
+
 
 //Music
 Raylib.InitAudioDevice();
@@ -17,8 +17,8 @@ Raylib.InitAudioDevice();
 Texture2D backgroundStart = Raylib.LoadTexture("images/backgroundZombie.png");
 Texture2D backgroundDeath = Raylib.LoadTexture("images/DeathScreen.png");
 Texture2D backgroundDeath2 = Raylib.LoadTexture("images/ryan69.png");
-Texture2D backgroundGame = Raylib.LoadTexture("images/image.png");
-Texture2D backgroundShop = Raylib.LoadTexture("images/backgroundShop");
+Texture2D backgroundGame = Raylib.LoadTexture("images/GameBackground.png");
+Texture2D backgroundShop = Raylib.LoadTexture("images/backgroundShop.png");
 
 
 //Characters
@@ -35,17 +35,26 @@ Texture2D playerDeath = Raylib.LoadTexture("images/Player/Death.png");
 Texture2D applePie = Raylib.LoadTexture("images/Food/06_apple_pie_dish.png");
 Texture2D bacon = Raylib.LoadTexture("images/Food/14_bacon_dish.png");
 Texture2D burger = Raylib.LoadTexture("images/Food/16_burger_dish.png");
-Texture2D stake = Raylib.LoadTexture("images/Food/96_stake_dish.png");
+Texture2D steak = Raylib.LoadTexture("images/Food/96_stake_dish.png");
+Texture2D Sword = Raylib.LoadTexture("images/Sword.png");
+
+
+//Rects
+
+//                                              cat 
+Texture2D cat = Raylib.LoadTexture("images/cat_spritesheet.png");
 
 //                                                     Values
 string currentScene = "start"; //Start, game, shop, end
-float speed = 1f;
+float speed = 3f;
 int playerHealth = 100;
 int playerHealthMax = 100;
 //int round = 1; 
+Random generator = new Random();
+int x = generator.Next(1,2);
 
 //timer 
-int timerGame = 60;
+float timerGame = 60;
 
 
 
@@ -56,7 +65,7 @@ Rectangle trapRect = new Rectangle(550, 500, 64, 64);
 while (Raylib.WindowShouldClose() == false)
 {
     // Logic 
-    Control(ref currentScene, speed, playerHealth, ref timerGame, ref playerRect);
+    Control(ref currentScene, speed, playerHealth,ref timerGame, ref playerRect);
 
     // Grafik
     Raylib.BeginDrawing();
@@ -74,15 +83,16 @@ while (Raylib.WindowShouldClose() == false)
           (int)playerRect.y,
           Color.WHITE);
 
+        new Zombie();
+
         if (timerGame >= 0)
         {
-            timerGame -= (int)Raylib.GetFrameTime();
-            Raylib.DrawText($"{timerGame}", 50, 400, 60, Color.WHITE);
+            timerGame -= Raylib.GetFrameTime();
+            Raylib.DrawText($"{(int)timerGame}", 50, 400, 60, Color.WHITE);
         }
         else if (timerGame <= 0)
         {
             currentScene = "shop";
-            playerHealth = playerHealthMax;
         }
 
 
@@ -95,7 +105,6 @@ while (Raylib.WindowShouldClose() == false)
             Color.WHITE);
         Raylib.DrawText("Press [ENTER] to start", 500, 600, 40, Color.BLACK);
 
-        z.Draw();
 
     }
     else if (currentScene == "shop")
@@ -104,6 +113,10 @@ while (Raylib.WindowShouldClose() == false)
        0,
        0,
        Color.WHITE);
+        Raylib.DrawTexture(Sword, 0, 0, Color.WHITE);
+        playerHealth = playerHealthMax;
+        Raylib.DrawTexture(steak, 0, 0, Color.WHITE);
+
     }
     else if (currentScene == "end")
     {
@@ -119,7 +132,7 @@ while (Raylib.WindowShouldClose() == false)
     Raylib.EndDrawing();
 }
 
-static void Control(ref string currentScene, float speed, int playerHealth, ref int timerGame, ref Rectangle playerRect)
+static void Control(ref string currentScene, float speed, int playerHealth, ref float timerGame, ref Rectangle playerRect)
 {
     if (currentScene == "game")
     {
@@ -138,6 +151,11 @@ static void Control(ref string currentScene, float speed, int playerHealth, ref 
         else if (Raylib.IsKeyDown(KeyboardKey.KEY_S))
         {
             playerRect.y += speed;
+        }
+
+        if (Raylib.IsKeyDown(KeyboardKey.KEY_K))
+        {
+
         }
 
         if (playerHealth <= 0 && timerGame >= 30)
