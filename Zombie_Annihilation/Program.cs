@@ -142,12 +142,11 @@ while (Raylib.WindowShouldClose() == false)
     }
     else if (currentScene == "Test")
     {
-        Raylib.DrawTexture(backgroundShop, 0, 0, Color.WHITE);
-        Raylib.DrawText("W to move upp", 50, 50, 64, Color.WHITE);
-        Raylib.DrawText("S to move down,", 60, 150, 64, Color.WHITE);
-        Raylib.DrawText("A to move left", 70, 250, 64, Color.WHITE);
-        Raylib.DrawText("D to move right", 80, 350, 64, Color.WHITE);
-        Raylib.DrawText("K to hit Zombies", 90, 500, 64, Color.WHITE);
+        Raylib.DrawText("W to move upp", 50, 50, 64, Color.BLACK);
+        Raylib.DrawText("S to move down,", 60, 150, 64, Color.BLACK);
+        Raylib.DrawText("A to move left", 70, 250, 64, Color.BLACK);
+        Raylib.DrawText("D to move right", 80, 350, 64, Color.BLACK);
+        Raylib.DrawText("K to hit Zombies", 90, 500, 64, Color.BLACK);
     }
 
     Raylib.EndDrawing();
