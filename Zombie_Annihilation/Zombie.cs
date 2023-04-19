@@ -19,6 +19,11 @@ public class Zombie
         sourceRect = new Rectangle(0, 0, 32, 32);
     }
 
+    public void Update()
+    {
+
+    }
+
     public void Draw()
     {
         Raylib.DrawTexturePro(spriteSheet, sourceRect, rect, Vector2.Zero, 0, Color.WHITE);
@@ -28,11 +33,4 @@ public class Zombie
     {
         Raylib.DrawTexturePro(deathSpriteSheet, sourceRect, rect, Vector2.Zero, 0, Color.WHITE);
     }
-
-    foreach (var item in Zombie)
-    {
-        
-    }
-
 }
-
