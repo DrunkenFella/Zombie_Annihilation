@@ -1,5 +1,11 @@
-Name: Zombie Annihilation
+Every round 60 seconds 
+Zombie draw random position
+Zombie draw every secound until there are 10 zombies and alive
+if zombie and player collide player hit "k"
+Zombie hit 5 damage
+Zombie track player position
+Zombie health "50 + 2 * round"
 
-2 D from the top 
+Timer runs out player choose betwen +10 damage and +15 health
 
-Zombie hoards that you fight during a time. After surviving a wave you get to uppgrade damage on your weapon or health. Each wave adds health to the zombies
+Start from the start again
